@@ -21,3 +21,16 @@ def test_single_element():
 def test_empty_list():
     with pytest.raises(ValueError):
         max_subarray_sum([])
+
+       # Additional tests to cover remaining lines
+def test_two_elements_positive_negative():
+    # Covers lines 38, 42-44
+    assert max_subarray_sum([1, -2]) == 1
+
+def test_negative_followed_by_positive():
+    # Covers updating max_global in loop
+    assert max_subarray_sum([-100, 1, 2, 3]) == 6
+
+def test_all_zeros():
+    # Covers branch where max_current == max_global
+    assert max_subarray_sum([0,0,0,0]) == 0
